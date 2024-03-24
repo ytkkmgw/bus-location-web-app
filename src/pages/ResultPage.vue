@@ -3,22 +3,23 @@
     <div align="center" v-if="loading">
       読み込み中<br>
       ※処理に数分かかる場合があります
-
-      <v-progress-linear v-if="loading"
-                         color="blue"
-                         indeterminate
+      <v-progress-linear
+          color="blue"
+          indeterminate
       ></v-progress-linear>
     </div>
     <div v-if="!loading">
-      {{ body }}
+      <PoleTab :content="body"/>
     </div>
   </v-container>
 </template>
 <script>
 import axios from 'axios';
+import PoleTab from "@/components/common/PoleTab.vue";
 
 export default {
   name: 'AdviceView',
+  components: {PoleTab},
   props: route => ({
     name: route.query.name
   }),
@@ -32,10 +33,13 @@ export default {
   },
 
   mounted() {
-    axios.get("https://bus-location-api.fly.dev/bus/?name=石神井公園駅北口")
-        .then(response => (this.body = response.data))
+    axios.get(`https://bus-location-api.fly.dev/bus/?name=${this.$route.query.name}`)
+    // axios.get(`http://127.0.0.1:8000/bus/?name=${this.$route.query.name}`)
+
+        .then(response => (this.body = response.data, console.log(response.data)))
         // .catch(response =>
-        //     alert("サーバ内エラーが発生しました。:"+response.data)
+        //     alert("サーバ内エラーが発生しました。:"+response.data),
+        //     router.push("/")
         // )
         .finally(() => this.loading = false)
   }

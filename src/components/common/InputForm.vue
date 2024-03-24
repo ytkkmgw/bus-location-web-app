@@ -26,7 +26,7 @@ import axios from 'axios';
 export default {
   data: vm => ({
     loading: false,
-    rules: [value => vm.checkApi(value)],
+    rules: [value => vm.validation(value)],
     timeout: null,
     busStop: '',
     apiValid: false
@@ -40,7 +40,7 @@ export default {
       this.loading = false
 
     },
-    async checkApi(userName) {
+    async validation(userName) {
       return new Promise(resolve => {
         clearTimeout(this.timeout)
 
@@ -52,6 +52,8 @@ export default {
         // バス停の存在確認をAPIを叩いて行う
         let results = false
         axios.get("https://bus-location-api.fly.dev/bus/check?name=" + this.busStop)
+        // axios.get("http://127.0.0.1:8000/bus/check?name=" + this.busStop)
+
             .then(response => results = response.data)
         this.timeout = setTimeout(() => {
 
@@ -60,6 +62,7 @@ export default {
           }
           // queryにはクエリパラメータを入れられる。
           router.push({name: "Result", query: {name: this.busStop}})
+
           // router.push("/result?name="+this.busStop)
         }, 1000)
       })

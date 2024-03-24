@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <NavigationBar/>
-
         <router-view/>
-
-
   </v-app>
 </template>
 
