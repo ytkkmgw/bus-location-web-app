@@ -3,10 +3,13 @@
   <v-container>
     <v-row>
       <v-col cols="8">
-        <v-chip density="compact" label> {{ route_number }}</v-chip>
+        <v-chip density="compact" :text="route_number"/>
       </v-col>
       <v-col cols="4">
-        <div class="departure_time" v-if="isDepartureTime(departure_time)">{{ departure_time }} 発</div>
+        <div class="departure_time" v-if="isDepartureTime(departure_time)">
+          <v-chip  size="x-small" text="次の発車" label/>
+          {{ departure_time }} 発
+        </div>
       </v-col>
     </v-row>
     <v-row>

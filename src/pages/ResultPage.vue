@@ -34,7 +34,7 @@ export default {
 
   mounted() {
     axios.get(`https://bus-location-api.fly.dev/bus/?name=${this.$route.query.name}`)
-    // axios.get(`http://127.0.0.1:8000/bus/?name=${this.$route.query.name}`)
+        // axios.get(`http://127.0.0.1:8000/bus/?name=${this.$route.query.name}`)
 
         .then(response => (this.body = response.data, console.log(response.data)))
         // TODO APIアクセス失敗したらトップ画面に遷移するようにしたい

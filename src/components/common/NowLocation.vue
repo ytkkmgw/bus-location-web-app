@@ -24,8 +24,11 @@
     <LocationPoint label="５つ前" :now="isNowLocation(10)"/>
     <LocationPoint v-if="isNowLocation(11)" :now="true"/>
 
-
   </v-timeline>
+  <br>
+  <v-chip size="x-small" text="現在位置" label/>
+  {{ nowLocation }}
+
 </template>
 
 <script>

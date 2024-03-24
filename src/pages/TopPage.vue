@@ -10,7 +10,7 @@
 import InputForm from "@/components/common/InputForm.vue";
 
 export default {
-  name: 'HomeView',
+  name: 'TopPage',
   components: {
     InputForm,
   }
