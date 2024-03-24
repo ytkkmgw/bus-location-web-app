@@ -37,6 +37,7 @@ export default {
     // axios.get(`http://127.0.0.1:8000/bus/?name=${this.$route.query.name}`)
 
         .then(response => (this.body = response.data, console.log(response.data)))
+        // TODO APIアクセス失敗したらトップ画面に遷移するようにしたい
         // .catch(response =>
         //     alert("サーバ内エラーが発生しました。:"+response.data),
         //     router.push("/")

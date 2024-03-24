@@ -55,7 +55,6 @@ export default {
     }
   }, methods: {
     isNowLocation(locationNumber) {
-
       let locationIndex = null
       for (const [index, location] of Object.entries(locations)) {
         if (this.nowLocation === location) {
@@ -67,9 +66,7 @@ export default {
       if (locationIndex === null) {
         return false
       }
-      console.log("locationIndex type:" + typeof (locationIndex))
-      console.log("locationIndex:", locationIndex)
-      console.log(locationNumber === locationIndex)
+
       return locationNumber === locationIndex
     },
   }
