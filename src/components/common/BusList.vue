@@ -1,11 +1,10 @@
-<!--バス便一覧-->
 <template>
   <v-item-group selected-class="bg-primary">
     <v-container>
       <v-row>
-        <v-col v-for="n in 3" :key="n" cols="12">
+        <v-col v-for="item in routes" :key="item" cols="12">
           <v-item>
-            <BusSummary/>
+            <BusSummary :content="item"/>
           </v-item>
         </v-col>
       </v-row>
@@ -13,8 +12,22 @@
   </v-item-group>
 </template>
 
-<script setup>
+<script>
+
+
 import BusSummary from "@/components/common/BusSummary.vue";
+
+export default {
+  name: "BusList",
+  components: {BusSummary},
+  props: ['content'],
+  data() {
+    return {
+      routes: this.content.routes
+
+    }
+  }
+}
 </script>
 
 <style scoped>

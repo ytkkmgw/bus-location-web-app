@@ -12,6 +12,10 @@
       <PoleTab :content="body"/>
     </div>
   </v-container>
+  <router-link to="/" align="center">
+    <v-btn>トップページに戻る</v-btn>
+  </router-link>
+
 </template>
 <script>
 import axios from 'axios';

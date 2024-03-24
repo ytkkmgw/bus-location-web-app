@@ -1,6 +1,6 @@
 <!--運行系統概要-->
 <template>
-  <v-card v-for="item in routes" :key="item" :variant="isInvalid(item)">
+  <v-card :variant="isInvalid(item.now_location)">
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
@@ -31,12 +31,12 @@ export default {
   data() {
     return {
       tab: null,
-      routes: this.content.routes
+      item: this.content
     }
   }, methods: {
-    isInvalid(item) {
+    isInvalid(now_location) {
       // 位置情報が無い場合はカード全体をグレーアウトする
-      if (this.isNoneLocation(item.now_location)) {
+      if (this.isNoneLocation(now_location)) {
         return "tonal"
       }
       return "elevated"

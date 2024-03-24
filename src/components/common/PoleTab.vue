@@ -1,4 +1,5 @@
 <template>
+  <v-card elevation="0" align="center" :text="busstopName"/>
   <v-card elevation="0">
     <v-tabs v-model="tab" color="blue" align-tabs="center">
       <v-tab :value="index" v-for="item in poles" :key="item">{{ item.pole_number }}
@@ -12,7 +13,7 @@
     <v-card-text>
       <v-window v-model="tab">
         <v-window-item :value="index" v-for="item in poles" :key="item">
-          <BusSummary :content="item"/>
+          <BusList :content="item"/>
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -21,11 +22,11 @@
 
 <script>
 
-import BusSummary from "@/components/common/BusSummary.vue";
+import BusList from "@/components/common/BusList.vue";
 
 export default {
   name: "PoleTab",
-  components: {BusSummary},
+  components: {BusList},
   props: ['content'],
   data() {
     return {

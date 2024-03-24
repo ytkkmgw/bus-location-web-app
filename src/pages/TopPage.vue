@@ -2,7 +2,6 @@
 <template>
   <v-container>
     <InputForm/>
-  <router-link to="/result">Go to home</router-link>
     </v-container>
 </template>
 
