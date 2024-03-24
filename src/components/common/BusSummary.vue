@@ -30,7 +30,6 @@ export default {
   props: ['content'],
   data() {
     return {
-      tab: null,
       item: this.content
     }
   }, methods: {
