@@ -2,7 +2,7 @@
   <v-container>
     <div align="center" v-if="loading">
       読み込み中<br>
-      ※処理に数分かかる場合があります
+      ※読み込みに数十秒程度かかる場合があります。そのままお待ち下さい。
       <v-progress-linear
           color="blue"
           indeterminate

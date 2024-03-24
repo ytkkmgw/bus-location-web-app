@@ -1,7 +1,7 @@
 <template>
   <v-card elevation="0" align="center" :text="busstopName"/>
   <v-card elevation="0">
-    <v-tabs v-model="tab" color="blue" align-tabs="center">
+    <v-tabs v-model="tab" color="blue" align-tabs="center" show-arrows>
       <v-tab :value="index" v-for="item in poles" :key="item">{{ item.pole_number }}
         <v-chip v-if="isPlatformNumber(item.platform)" density="comfortable" size="x-small">のりば{{
             item.platform
